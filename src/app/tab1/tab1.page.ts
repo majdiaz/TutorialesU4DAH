@@ -23,6 +23,7 @@ export class Tab1Page {
   
   create() {   
     this.student = {
+     id: "",
      name: this.myForm.controls.name.value,
      controlnumber: this.myForm.controls.controlnumber.value,     
      age: this.myForm.controls.age.value,

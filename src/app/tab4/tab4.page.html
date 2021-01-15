@@ -1,7 +1,7 @@
 <ion-header>
-  <ion-toolbar color="success">
+  <ion-toolbar color="danger">
     <ion-title>
-      Estudiantes Activos
+      Estudiantes Inactivos
     </ion-title>
   </ion-toolbar>
 </ion-header>
@@ -10,7 +10,7 @@
   <ion-list>
     <ion-list>
       <div *ngFor="let student of students">
-      <ion-item-sliding *ngIf="student.active">        
+      <ion-item-sliding *ngIf="!student.active">        
         <ion-item-options side="start">
           <ion-item-option color = "secondary">
             <ion-icon name="checkmark"></ion-icon>
@@ -22,6 +22,7 @@
             <h2>
               <strong>{{student.name}}</strong>              
             </h2>
+
             <h3>noControl: {{student.controlnumber}}</h3>
             <ion-button (click)="verMas()" fill="clear" *ngIf="!ver" shape="round">ver mas 
               <ion-icon name="arrow-down"></ion-icon>              

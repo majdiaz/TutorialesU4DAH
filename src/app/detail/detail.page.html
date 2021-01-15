@@ -1,0 +1,143 @@
+<ion-header>
+  <ion-toolbar color="primary">    
+      <ion-buttons slot="start">
+        <ion-back-button defaultHref="/"></ion-back-button>
+      </ion-buttons>
+      <ion-title> <strong> Editar estudiante:</strong> "{{student.name}}"</ion-title>    
+  </ion-toolbar>
+</ion-header>
+
+<ion-content padding>
+<ion-fab vertical="top" horizontal="end" slot="fixed" edge>
+  <ion-fab-button>
+    <ion-icon name="add"></ion-icon>
+  </ion-fab-button>
+
+  <ion-fab-list>
+    <ion-fab-button color="success"><ion-icon name="checkmark"></ion-icon></ion-fab-button>
+    <ion-fab-button color="warning"><ion-icon name="close"></ion-icon></ion-fab-button>
+    <ion-fab-button color="danger"><ion-icon name="trash"></ion-icon></ion-fab-button>
+  </ion-fab-list>
+</ion-fab>
+
+<ion-grid >
+  <form [formGroup]="myForm">
+    <ion-row color="primary" justify-content-center>
+      <ion-col align-self-center size-md="6" size-lg="5" size-xs="12">
+        
+        <div padding>          
+          
+          <div>           
+            <ion-label>              
+              <h2>
+                <strong>Nombre: </strong> {{student.name}}              
+                <ion-button (click)="editN()"  fill="clear" shape="round">                
+                  <ion-icon slot="start" name="create"></ion-icon>
+                  <ion-label *ngIf="!nombreEditable"> Editar</ion-label>
+                  <ion-label *ngIf="nombreEditable"> Cancelar</ion-label>
+                </ion-button>            
+              </h2>
+            </ion-label>  
+            <ion-label>
+              <h2 *ngIf="nombreEditable">
+                <ion-input formControlName="name"  type="text" placeholder="Nuevo Nombre"></ion-input>
+                <ion-button (click)="updateN(student)"  fill="clear" shape="round">                
+                  Guardar
+                  <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                </ion-button>            
+                </h2>
+            </ion-label>                                                            
+          </div>
+
+
+          <div>           
+            <ion-label>              
+              <h2>
+                <strong>Curp: </strong> {{student.curp}}              
+                <ion-button (click)="editC()"  fill="clear" shape="round">                
+                  <ion-icon slot="start" name="create"></ion-icon>
+                  <ion-label *ngIf="!curpEditable"> Editar</ion-label>
+                  <ion-label *ngIf="curpEditable"> Cancelar</ion-label>
+                </ion-button>            
+              </h2>
+            </ion-label>  
+            <ion-label>
+              <h2 *ngIf="curpEditable">
+                <ion-input formControlName="curp"  type="text" placeholder="curp Nueva"></ion-input>
+                <ion-button (click)="updateC(student)"  fill="clear" shape="round">                
+                  Guardar
+                  <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                </ion-button>            
+                </h2>
+            </ion-label>                                                            
+          </div>
+
+          
+          
+
+
+          <div>           
+            <ion-label>              
+              <h2>
+                <strong>Numero de control: </strong> {{student.controlnumber}}              
+                <ion-button (click)="editNC()"  fill="clear" shape="round">                
+                  <ion-icon slot="start" name="create"></ion-icon>
+                  <ion-label *ngIf="!ncontrolEditable"> Editar</ion-label>
+                  <ion-label *ngIf="ncontrolEditable"> Cancelar</ion-label>
+                </ion-button>            
+              </h2>
+            </ion-label>  
+            <ion-label>
+              <h2 *ngIf="ncontrolEditable">
+                <ion-input formControlName="controlnumber"  type="text" placeholder="#control nuevo"></ion-input>
+                <ion-button (click)="updateNC(student)"  fill="clear" shape="round">                
+                  Guardar
+                  <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                </ion-button>            
+                </h2>
+            </ion-label>                                                            
+          </div>
+
+          
+
+
+          <div>           
+            <ion-label>              
+              <h2>
+                <strong>Edad: </strong> {{student.age}}              
+                <ion-button (click)="editE()"  fill="clear" shape="round">                
+                  <ion-icon slot="start" name="create"></ion-icon>
+                  <ion-label *ngIf="!edadEditable"> Editar</ion-label>
+                  <ion-label *ngIf="edadEditable"> Cancelar</ion-label>
+                </ion-button>            
+              </h2>
+            </ion-label>  
+            <ion-label>
+              <h2 *ngIf="edadEditable">
+                <ion-input formControlName="age"  type="number" placeholder="edad nueva"></ion-input>
+                <ion-button (click)="updateE(student)"  fill="clear" shape="round">                
+                  Guardar
+                  <ion-icon slot="start" name="checkmark-circle"></ion-icon>
+                </ion-button>            
+                </h2>
+            </ion-label>                                                            
+          </div>
+
+          <div>
+            <strong>Estatus: </strong>             
+            <ion-chip color="success" *ngIf="student.active"  >
+              <ion-label>Activo</ion-label>
+            </ion-chip>
+            <ion-chip color="danger" *ngIf="!student.active" >
+              <ion-label>Inactivo</ion-label>
+            </ion-chip>
+          </div>          
+          
+                      
+
+        </div>                          
+      </ion-col>        
+    </ion-row>
+  </form>
+</ion-grid>
+</ion-content>

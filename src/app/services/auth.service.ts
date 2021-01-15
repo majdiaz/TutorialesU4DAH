@@ -1,8 +1,7 @@
 import { Injectable } from '@angular/core';
-import {AngularFireAuth} from '@angular/fire/auth';
-import {User} from '../models/user';
-
-import { auth } from 'firebase/app';
+import { AngularFireAuth } from '@angular/fire/auth';
+import { User } from '../models/user';
+//import { auth } from 'firebase/app';
 
 @Injectable({
   providedIn: 'root'
@@ -15,14 +14,14 @@ public islogged: any = false;
 
   async onLogin(user:User){
     try{
-      return await this.afAuth.auth.signInWithEmailAndPassword(user.email, user.password);
+      return await this.afAuth.signInWithEmailAndPassword(user.email, user.password);
     }catch (error){
       console.log('Error en login', error);
     }
   }
 
   loginGoogleUser(){
-    return this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
+    //return this.afsAuth.auth.signInWithPopup(new auth.GoogleAuthProvider());
   }
 
 
